@@ -62,7 +62,7 @@ def result_musicgen():
         "meta/musicgen:7be0f12c54a8d033a0fbd14418c9af98962da9a86f5ff7811f9b3423a1f0b7d7",
         input={
         "prompt": q,
-        "duration": 2,
+        "duration": 1,
         }
     )
     return(render_template("result_musicgen.html",r=r))
