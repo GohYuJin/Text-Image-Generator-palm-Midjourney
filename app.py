@@ -29,6 +29,14 @@ def palm():
 def mj():
     return(render_template("mj.html"))
 
+@app.route("/musicgen",methods=["GET","POST"])
+def musicgen():
+    return(render_template("musicgen.html"))
+
+@app.route("/zeroscope",methods=["GET","POST"])
+def zeroscope():
+    return(render_template("zeroscope.html"))
+
 @app.route("/result_palm",methods=["GET","POST"])
 def result_palm():
     q = request.form.get("q")
@@ -46,6 +54,30 @@ def result_mj():
         }
     )
     return(render_template("result_mj.html",r=r[0]))
+
+@app.route("/result_musicgen",methods=["GET","POST"])
+def result_musicgen():
+    q = request.form.get("q")
+    r = replicate.run(
+        "meta/musicgen:7be0f12c54a8d033a0fbd14418c9af98962da9a86f5ff7811f9b3423a1f0b7d7",
+        input={
+        "prompt": q,
+        "duration": 4,
+        }
+    )
+    return(render_template("result_musicgen.html",r=r))
+
+@app.route("/result_zeroscope",methods=["GET","POST"])
+def result_zeroscope():
+    q = request.form.get("q")
+    r = replicate.run(
+        "anotherjesse/zeroscope-v2-xl:9f747673945c62801b13b84701c783929c0ee784e4748ec062204894dda1a351",
+        input={
+        "prompt": q,
+        "num_frames": 8,
+        }
+    )
+    return(render_template("result_zeroscope.html",r=r[0]))
 
 @app.route("/end",methods=["GET","POST"])
 def end():

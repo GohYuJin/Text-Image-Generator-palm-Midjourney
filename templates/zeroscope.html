@@ -1,0 +1,30 @@
+<style>
+    .container {
+        width: 100%;
+        margin: auto;
+    }
+    @media (min-width: 600px) {
+        .container {
+            width: 80%;
+        }
+    }
+    @media (min-width: 768px) {
+        .container {
+            width: 60%;
+        }
+    }
+    @media (min-width: 1024px) {
+        .container {
+            width: 50%;
+        }
+    }
+</style>
+
+<div class="container">
+    <h1>Video Generator</h1>
+    <form action="/result_zeroscope" method="post">
+        <p>Please enter the prompt for your video: </p>
+        <p><input type="text" name="q"></p>
+        <p><input type="submit" value="Enter" style="width:100px;height:50px"></p>
+    </form>
+</div>
