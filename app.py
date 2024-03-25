@@ -62,7 +62,7 @@ def result_musicgen():
         "meta/musicgen:7be0f12c54a8d033a0fbd14418c9af98962da9a86f5ff7811f9b3423a1f0b7d7",
         input={
         "prompt": q,
-        "duration": 4,
+        "duration": 2,
         }
     )
     return(render_template("result_musicgen.html",r=r))
@@ -74,7 +74,7 @@ def result_zeroscope():
         "anotherjesse/zeroscope-v2-xl:9f747673945c62801b13b84701c783929c0ee784e4748ec062204894dda1a351",
         input={
         "prompt": q,
-        "num_frames": 8,
+        "num_frames": 4,
         }
     )
     return(render_template("result_zeroscope.html",r=r[0]))
